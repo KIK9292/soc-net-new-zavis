@@ -51,6 +51,9 @@ export const SocialAPI={
     },
     updateMyProfile(model:RequestUpdateMyProfileType){
         return instance.put<ResponseUpdateMyProfileType,AxiosResponse<ResponseUpdateMyProfileType>,RequestUpdateMyProfileType>('/profile',model)
+    },
+    updateMyProfilePhoto(){
+        return instance.put('/profile/photo')
     }
 
 }
