@@ -3,7 +3,7 @@ type FieldError = {
   field: string;
 };
 
-export type BaseResponce<D = {}> = {
+export type BaseResponse<D = {}> = {
   resultCode: number;
   messages: Array<string>;
   data: D;
@@ -23,11 +23,6 @@ export type User = {
   uniqueUrlName: null | any;
 };
 
-export type UserResponse = {
-  items: User[];
-  totalCount: number;
-  error: null | string;
-};
 type Contacts = {
   facebook: null | string;
   website: null | string;
@@ -47,4 +42,44 @@ export type UserProfile = {
   fullName: string;
   userId: number;
   Photos: Photos;
+};
+
+export type UtilResponse<D = {}> = {
+  items: D;
+  totalCount: number;
+  error: null | string;
+};
+export type Message = {
+  id: string;
+  body: string;
+  translatedBody: null;
+  addedAt: string;
+  senderId: number;
+  senderName: string;
+  recipientId: number;
+  viewed: boolean;
+};
+export type Dialogs = {
+  id: number;
+  userName: string;
+  hasNewMessages: boolean;
+  lastDialogActivityDate: string;
+  lastUserActivityDate: string;
+  newMessagesCount: number;
+  photos: Photos;
+};
+export type MessageParams = {
+  id: string;
+  body: string;
+  translatedBody: null;
+  addedAt: string;
+  senderId: number;
+  senderName: string;
+  recipientId: number;
+  recipientName: string;
+  viewed: boolean;
+  deletedBySender: boolean;
+  deletedByRecipient: boolean;
+  isSpam: boolean;
+  distributionId: null;
 };

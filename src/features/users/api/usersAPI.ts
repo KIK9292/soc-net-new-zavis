@@ -1,5 +1,5 @@
 import { instance } from "common/api";
-import { BaseResponce, UserResponse } from "common/types/apiTypes";
+import { BaseResponse, User, UtilResponse } from "common/types/apiTypes";
 
 export type Params = {
   count?: number;
@@ -9,6 +9,6 @@ export type Params = {
 
 export const usersAPI = {
   users(params?: Params) {
-    return instance.get<BaseResponce<UserResponse>>(`/users`, { params });
+    return instance.get<BaseResponse<UtilResponse<User[]>>>(`users`, { params });
   },
 };
