@@ -1,9 +1,8 @@
-.headerWrapper{
-    grid-area: h;
-    height: auto;
-    background-color: #349eab;
-
+.headerWrapper {
+  grid-area: h;
+  height: auto;
+  background-color: #349eab;
 }
-.headerWrapper img{
-    width: 90px;
+.headerWrapper img {
+  width: 90px;
 }
