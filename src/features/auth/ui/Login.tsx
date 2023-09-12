@@ -7,10 +7,11 @@ import { AppRootState } from "app/store"
 import { useActions } from "common/hook/useActions"
 import { authThunks } from "features/auth/models/auth.slice"
 import { useSelector } from "react-redux"
+import { RedoOutlined } from "@ant-design/icons"
 
 export const Login = () => {
-  const { login } = useActions(authThunks)
-  const captcha = useSelector<AppRootState, string | null>((state) => state.auth.captcha)
+  const { login, captcha } = useActions(authThunks)
+  const captchaValue = useSelector<AppRootState, string | null>((state) => state.auth.captcha)
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -24,14 +25,15 @@ export const Login = () => {
       })
     },
   })
-
+  const refreshHandler = () => {
+    captcha()
+  }
   return (
     <Form
       name="basic"
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 16 }}
       style={{ maxWidth: 600 }}
-      // initialValues={{ rememberMe: false }}
       onFinish={formik.handleSubmit}
       autoComplete="off"
     >
@@ -49,9 +51,10 @@ export const Login = () => {
         <Input.Password {...formik.getFieldProps("password")} />
       </Form.Item>
 
-      {captcha && (
+      {captchaValue && (
         <>
-          <img src={captcha} alt="Captcha" />
+          <img src={captchaValue} alt="Captcha" />
+          <RedoOutlined title={"Обновить капчу"} onClick={refreshHandler} />
           <Form.Item<LoginParams>
             label="Captcha"
             rules={[{ required: true, message: "Please input captcha!" }]}
