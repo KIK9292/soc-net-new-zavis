@@ -2,6 +2,7 @@ import React from "react"
 import s from "app/App.module.css"
 import { Login } from "features/auth/ui/Login"
 import { Progress } from "antd"
+import Users from "features/users/ui/Users"
 
 function App() {
   //useEffect()=>me=>isInitial,isLogin
@@ -13,7 +14,7 @@ function App() {
   return (
     <div className={s.appWrapper}>
       <Progress percent={100} />
-      <Login />
+      <Users />
     </div>
   )
 }

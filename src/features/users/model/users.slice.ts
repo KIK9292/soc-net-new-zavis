@@ -66,5 +66,5 @@ const slice = createSlice({
       })
   },
 })
-export const authSlice = slice.reducer
+export const userSlice = slice.reducer
 export const userThunk = { setUsers, followUser, unFollowUser }
